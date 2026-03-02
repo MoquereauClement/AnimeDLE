@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeDLE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AnimeDLE</h1>
+    <p>Devine l'anime du jour !</p>
+  </header>
+
+  <main>
+    <div id="game">
+      <div class="answer-titles square-container">
+        <div class="square square-title">Titre</div>
+        <div class="square square-title">Genre</div>
+        <div class="square square-title">Studio</div>
+        <div class="square square-title">Episodes</div>
+        <div class="square square-title">Année</div>
+      </div>
+
+      <div id="guesses-container"></div>
+
+      <input type="text" id="guess-input" placeholder="Entrez votre anime..." />
+      <button id="guess-btn">Deviner</button>
+      <p id="message"></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

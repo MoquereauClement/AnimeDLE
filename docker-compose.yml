@@ -1,20 +1,44 @@
 version: '3.8'
+
 services:
- web:
-   build: .
-   ports:
-     - "8080:3000"
-   depends_on:
-     - redis
-   environment:
-     - REDIS_HOST=redis
- redis:
-   image: 'redis:6.2'
-   ports:
-     - "6379:6379"
- redisinsight:
-   image: redislabs/redisinsight:latest
-   ports:
-     - "8081:5540"
-   depends_on:
-     - redis
+  web:
+    build: .
+    ports:
+      - "8080:3000"
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      - REDIS_HOST=redis
+      - DB_HOST=postgres
+      - DB_USER=animeuser
+      - DB_PASSWORD=animepass
+      - DB_NAME=animedb
+      - DB_PORT=5432
+
+  redis:
+    image: redis:6.2
+    ports:
+      - "6379:6379"
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - "8081:5540"
+    depends_on:
+      - redis
+
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: animeuser
+      POSTGRES_PASSWORD: animepass
+      POSTGRES_DB: animedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
