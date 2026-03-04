@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AnimeDLE</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <header>
     <h1>AnimeDLE</h1>
@@ -24,12 +26,16 @@
 
       <div id="guesses-container"></div>
 
-      <input type="text" id="guess-input" placeholder="Entrez votre anime..." />
+      <div class="search-container">
+        <input type="text" id="guess-input" placeholder="Entrez votre anime..." autocomplete="off" />
+        <div id="suggestions" class="suggestions-list"></div>
+      </div>
       <button id="guess-btn">Deviner</button>
       <p id="message"></p>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
+
 </html>
